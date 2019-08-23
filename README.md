@@ -155,18 +155,6 @@ sudo nano /etc/rc.local
 cd /home/pi/PATH_TO_APP/
 bash start.sh
 ```
-### Make Raspberry Pi an accesspoint that tunnels it's internet connection
-```
-curl https://raw.githubusercontent.com/lukicdarkoo/rpi-wifi/master/configure | bash -s -- -a ACCESS_POINT_NAME ACCESS_POINT_PASSWORD -c AP_SSID AP_PASS
-```
-* Some hacks to ensure it works
-```
-Sudo nano /etc/rc.local
-```
-* Past this this before exit 0
-```
-sudo iptables -t nat -A POSTROUTING -s 192.168.10.0/24 ! -d 192.168.10.0/24 -j MASQUERADE
-```
 
 # More info and notes
 * Matrix driver info and notes on use: https://github.com/hzeller/rpi-rgb-led-matrix
