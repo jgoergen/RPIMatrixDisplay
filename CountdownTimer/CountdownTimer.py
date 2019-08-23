@@ -489,8 +489,8 @@ while not done:
                 ipDisplayFlip = 0
 
             elif ipDisplayFlip > IP_FLIP_SPEED and ipAddress is not None:
-                graphics.DrawText(offscreen_canvas, font, 8, 10, graphics.Color(150, 150, 150), ipParts[0] + "." + ipParts[1])
-                graphics.DrawText(offscreen_canvas, font, 8, 21, graphics.Color(150, 150, 150), ipParts[2] + "." + ipParts[3])
+                graphics.DrawText(offscreen_canvas, font, 1, 10, graphics.Color(150, 150, 150), ipParts[0] + "." + ipParts[1])
+                graphics.DrawText(offscreen_canvas, font, 1, 21, graphics.Color(150, 150, 150), ipParts[2] + "." + ipParts[3])
 
             else:
                 graphics.DrawText(offscreen_canvas, font, 10, 9, graphics.Color(150, 150, 150), "matrix")
@@ -499,8 +499,12 @@ while not done:
             graphics.DrawText(offscreen_canvas, font, 19, 31, graphics.Color(150, 150, 250), str(HTTP_SERVER_PORT))
 
         else:
-            graphics.DrawText(offscreen_canvas, font, 10, 9, graphics.Color(150, 150, 150), "Not online")
-            graphics.DrawText(offscreen_canvas, font, 30, 19, graphics.Color(150, 150, 150), "=(")
+            graphics.DrawText(offscreen_canvas, font, 1, 9, graphics.Color(150, 150, 150), "Not online")
+            graphics.DrawText(offscreen_canvas, font, 25, 19, graphics.Color(150, 150, 150), "=(")
+            piOnline = isOnline()
+            if piOnline == True:
+                ipAddress = getIP()
+                ipParts = ipAddress.split(".")
 
     else:
         rotateRGB()
